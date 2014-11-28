@@ -21,14 +21,11 @@ class Odnoklassniki extends AbstractProvider
 
     public function urlUserDetails(AccessToken $token)
     {
-        $param = [
-            'method' => 'users.getCurrentUser',
-            'application_key' => $this->clientPublic,
-        ];
-        ksort($param);
-        $param['sig'] = md5($this->httpBuildQuery($param, 0, '').md5($token.$this->clientSecret));
-        $param['access_token'] = $token->accessToken;
-        return 'http://api.odnoklassniki.ru/fb.do?'.$this->httpBuildQuery($param);
+        $param = 'application_key='.$this->clientPublic
+            .'&fields=uid,name,first_name,last_name,location,pic_3,gender,locale'
+            .'&method=users.getCurrentUser';
+        $sign = md5(str_replace('&', '', $param).md5($token.$this->clientSecret));
+        return 'http://api.odnoklassniki.ru/fb.do?'.$param.'&access_token='.$token.'&sig='.$sign;
     }
 
     public function userDetails($response, AccessToken $token)
@@ -38,6 +35,7 @@ class Odnoklassniki extends AbstractProvider
         $user->location = $response->location->city;
         $user->firstName = $response->first_name;
         $user->lastName = $response->last_name;
+        $user->imageUrl = $response->pic_3;
         return $user;
     }
 
