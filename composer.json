@@ -1,0 +1,20 @@
+{
+    "name": "aego/odnoklassniki-oauth2-provider",
+    "description": "Odnoklassniki OAuth2 provider for league/oauth2-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Rakeev",
+            "email": "alexey@rakeev.name"
+        }
+    ],
+    "require": {
+        "php": "~5.4",
+        "league/oauth2-client": "~0.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aego\\OAuth2\\Client\\": "src/"
+        }
+    }
+}
