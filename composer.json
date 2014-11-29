@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Aego\\OAuth2\\Client\\": "src/"
+            "Aego\\OAuth2\\Client\\Provider\\": "src/"
         }
     }
 }
