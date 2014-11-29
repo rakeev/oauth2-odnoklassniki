@@ -1,6 +1,6 @@
 {
-    "name": "aego/odnoklassniki-oauth2-provider",
-    "description": "Odnoklassniki OAuth2 provider for league/oauth2-client",
+    "name": "aego/oauth2-odnoklassniki",
+    "description": "Odnoklassniki provider for league/oauth2-client",
     "license": "MIT",
     "authors": [
         {
